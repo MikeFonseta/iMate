@@ -13,6 +13,8 @@ struct HomeView: View {
     
     @State var currentDayText = Date().formatted(date: .abbreviated, time: .omitted)
     
+    @State var newTask = false
+    
     @Namespace var animation
     
     var body: some View {
@@ -36,7 +38,7 @@ struct HomeView: View {
                                         .frame(width: 45, height: 90)
                                         .background{
                                             ZStack{
-                                                if taskModel.isToday(date: day){ Capsule().fill(.blue).matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                                                if taskModel.isToday(date: day){ Capsule().fill(Color("petrolio")).matchedGeometryEffect(id: "CURRENTDAY", in: animation)
                                                 }
                                             }
                                         }
@@ -59,11 +61,7 @@ struct HomeView: View {
                 }.padding(2)
             }.ignoresSafeArea(.container, edges: .top)
                 .overlay(
-                    Button(action: {
-                        SingleTask(editing: false)
-                    }, label: {
-                        Image(systemName: "plus").foregroundStyle(.white).padding().background(Color.blue, in: Circle())
-                    }).padding(), alignment: .bottomTrailing)
+                    NavigationLink(destination: SingleTask(editing: false), label: {Image(systemName: "plus").foregroundStyle(.white).padding().background(Color("petrolio"), in: Circle())}).padding(), alignment: .bottomTrailing)
         }
     }
     
@@ -95,12 +93,12 @@ struct HomeView: View {
     func TaskCardView(task: TaskModel)-> some View{
         HStack(alignment: .top, spacing: 30){
             VStack(spacing: 10){
-                Circle().fill(taskModel.isCurrentHour(date: task.taskDate) ? .blue : .white)
+                Circle().fill(taskModel.isCurrentHour(date: task.taskDate) ? Color("petrolio") : .white)
                     .frame(width: 15, height: 15)
-                    .background(Circle().stroke(.blue, lineWidth: 1).padding(-3))
+                    .background(Circle().stroke(Color("petrolio"), lineWidth: 1).padding(-3))
                 
                 
-                Rectangle().fill(.blue).frame(width: 3)
+                Rectangle().fill(Color("petrolio")).frame(width: 3)
             }
             VStack(spacing: 4){
                 HStack(alignment: .top, spacing: 10){
@@ -148,7 +146,7 @@ struct HomeView: View {
             Spacer()
             
             NavigationLink(destination: Text("House Info")){ //HouseInfoView()) {
-                Image(systemName: "person.fill").resizable().frame(width: 20, height: 20)
+                Image(systemName: "person.2.fill").foregroundColor(Color("petrolio"))
             }
     
             

@@ -10,6 +10,9 @@ import SwiftUI
 struct SingleTask: View {
     
     var editing: Bool
+    
+    @Environment(\.presentationMode) var presentationMode
+    
     @State var title: String = ""
     @State var description: String = ""
     @State var date: Date = Date()
@@ -17,18 +20,19 @@ struct SingleTask: View {
     @ObservedObject var taskModel = sharedData
     
     var body: some View {
-        NavigationView{
+        NavigationStack{
             List{
                 Section{
-                    HStack(spacing: 10){
-                        Image(systemName: "lightbulb.fill")
-                            .onTapGesture {
-                            print("changeIcong")
-                        }
-                        TextField("", text: $title)
-                    }
+                    TextField("", text: $title)
                 } header: {
                     Text("Title")
+                }
+                Section{
+                
+                    TextField("", text: $description)
+                    
+                } header: {
+                    Text("Icon")
                 }
                 Section{
                 
@@ -54,10 +58,12 @@ struct SingleTask: View {
                             }.disabled(title == "").foregroundColor(Color.red)
                         }
                         else{
-                            Button("Add"){
-                                taskModel.storedTasks.append(TaskModel(taskTitle: title, taskDescription: description, taskDate: date, user: "", isCompleted: false))
+                            Button("Save"){
                                 
+                                taskModel.storedTasks.append(TaskModel(taskTitle: title, taskDescription: description, taskDate: date, user: "", isCompleted: false))
+                
                                 taskModel.filterTodayTasks()
+                                presentationMode.wrappedValue.dismiss()
                             }.disabled(title == "")
                         }
                     }
