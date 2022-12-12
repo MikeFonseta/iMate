@@ -43,7 +43,6 @@
 		DEC76DE9294533260015E3C7 = {
 			isa = PBXGroup;
 			children = (
-				DE7E478E29472E5D00220873 /* SingleTask.swift */,
 				DEC76DF4294533260015E3C7 /* iMate */,
 				DEC76DF3294533260015E3C7 /* Products */,
 			);
@@ -60,6 +59,7 @@
 		DEC76DF4294533260015E3C7 /* iMate */ = {
 			isa = PBXGroup;
 			children = (
+				DE7E478E29472E5D00220873 /* SingleTask.swift */,
 				DEC76DF5294533260015E3C7 /* iMateApp.swift */,
 				DEC76DF7294533260015E3C7 /* ContentView.swift */,
 				DE7E478C2947276800220873 /* HomeView.swift */,
