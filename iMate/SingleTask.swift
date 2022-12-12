@@ -16,7 +16,11 @@ struct SingleTask: View {
     @State var title: String = ""
     @State var description: String = ""
     @State var date: Date = Date()
-    
+    @State var IsSelected: Bool = true
+    @State var IsSelected1: Bool = false
+    @State var IsSelected2: Bool = false
+    @State var IsSelected3: Bool = false
+
     @ObservedObject var taskModel = sharedData
     
     var body: some View {
@@ -27,13 +31,79 @@ struct SingleTask: View {
                 } header: {
                     Text("Title")
                 }
-                Section{
+                Section(header: Text("icon")){
+                    HStack{
+                        Button{
+                            
+                        } label:{
+                            Image(systemName: IsSelected ?  "bed.double.circle.fill" : "bed.double.circle")
+                                .resizable()
+                                .frame(width:40,height:40)
+                                .foregroundStyle(Color("petrolio"))
+                                .onTapGesture {
+                                    IsSelected=true
+                                    IsSelected1=false
+                                    IsSelected2=false
+                                    IsSelected3=false
+                                }
+                        }.padding(18)
+                        
+                        Button{
+                            
+                        } label:{
+                            Image(systemName: IsSelected1 ?  "toilet.circle.fill" : "toilet.circle")
+                                .resizable()
+                                .frame(width:40,height:40)
+                                .foregroundStyle(Color("petrolio"))
+                                .onTapGesture {
+                                    IsSelected1=true
+                                    IsSelected=false
+                                    IsSelected2=false
+                                    IsSelected3=false
+
+                                }
+                        }.padding(18)
+                        
+                        
+                        Button{
+                            
+                        } label:{
+                            Image(systemName: IsSelected2 ?  "fork.knife.circle.fill" : "fork.knife.circle")
+                                .resizable()
+                                .frame(width:40,height:40)
+                                .foregroundStyle(Color("petrolio"))
+                                .onTapGesture {
+                                    IsSelected2=true
+                                    IsSelected=false
+                                    IsSelected1=false
+                                    IsSelected3=false
+
+                                }
+                        }.padding(18)
+                        
+                        
+                        
+                        Button{
+                            
+                        } label:{
+                            Image(systemName: IsSelected3 ?  "trash.circle.fill" : "trash.circle")
+                                .resizable()
+                                .frame(width:40,height:40)
+                                .foregroundStyle(Color("petrolio"))
+                                .onTapGesture {
+                                    IsSelected3=true
+                                    IsSelected=false
+                                    IsSelected1=false
+                                    IsSelected2=false
+                                }
+                        }.padding(18)
+                    }
                 
-                    TextField("", text: $description)
+            }
                     
-                } header: {
-                    Text("Icon")
-                }
+                           
+                
+                
                 Section{
                 
                     TextField("", text: $description)

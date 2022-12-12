@@ -92,24 +92,20 @@ struct HomeView: View {
     
     func TaskCardView(task: TaskModel)-> some View{
         HStack(alignment: .top, spacing: 30){
-            VStack(spacing: 10){
-                Circle().fill(taskModel.isCurrentHour(date: task.taskDate) ? Color("petrolio") : .white)
-                    .frame(width: 15, height: 15)
-                    .background(Circle().stroke(Color("petrolio"), lineWidth: 1).padding(-3))
-                
-                
-                Rectangle().fill(Color("petrolio")).frame(width: 3)
-            }
+          
             VStack(spacing: 4){
                 HStack(alignment: .top, spacing: 10){
                     VStack(alignment: .leading, spacing: 12){
-                        Text(task.taskTitle).font(.title2.bold())
+                        HStack{     Text(task.taskTitle).font(.title2.bold())
+                          task.taskImage.resizable().frame(width:30 , height:30)
+                        }
                         Text(task.taskDescription).font(.callout).foregroundStyle(.secondary)
                     }.hLeading()
                     
                     Text(task.taskDate.formatted(date: .omitted, time: .shortened))
+                    
                 }
-                if taskModel.isCurrentHour(date: task.taskDate){
+                
                     var task = task
                     HStack(spacing: 0){
                         HStack(spacing: 5){
@@ -124,17 +120,15 @@ struct HomeView: View {
                         } label: {
                             Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle.fill")
                                 .padding(10)
-                                
                         }
                     }.padding(.top)
-                }
             }
-            .foregroundColor(taskModel.isCurrentHour(date: task.taskDate) ? .white : .gray)
-            .padding(taskModel.isCurrentHour(date: task.taskDate) ? 15:0)
-            .padding(.bottom, taskModel.isCurrentHour(date: task.taskDate) ? 0: 10)
+            .foregroundColor(.white)
+            .padding(15)
+            .padding(.bottom,0)
             .hLeading()
-            .background(Color(.systemBlue).cornerRadius(25)
-                .opacity(taskModel.isCurrentHour(date: task.taskDate) ? 1:0))
+            .background(Color("petrolio").cornerRadius(25)
+                .opacity(1))
         }.hLeading()
     }
     
