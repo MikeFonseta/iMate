@@ -15,6 +15,8 @@
 		DEC76DF8294533260015E3C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC76DF7294533260015E3C7 /* ContentView.swift */; };
 		DEC76DFA294533270015E3C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEC76DF9294533270015E3C7 /* Assets.xcassets */; };
 		DEC76DFD294533270015E3C7 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEC76DFC294533270015E3C7 /* Preview Assets.xcassets */; };
+		DEDF889029488FD900B9AD72 /* AssignmentModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEDF888F29488FD900B9AD72 /* AssignmentModal.swift */; };
+		DEDF8893294896C100B9AD72 /* FortuneWheel in Frameworks */ = {isa = PBXBuildFile; productRef = DEDF8892294896C100B9AD72 /* FortuneWheel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,7 @@
 		DEC76DF7294533260015E3C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DEC76DF9294533270015E3C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEC76DFC294533270015E3C7 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DEDF888F29488FD900B9AD72 /* AssignmentModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssignmentModal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEDF8893294896C100B9AD72 /* FortuneWheel in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				DE7E478E29472E5D00220873 /* SingleTask.swift */,
+				DEDF888F29488FD900B9AD72 /* AssignmentModal.swift */,
 				DEC76DF5294533260015E3C7 /* iMateApp.swift */,
 				DEC76DF7294533260015E3C7 /* ContentView.swift */,
 				DE7E478C2947276800220873 /* HomeView.swift */,
@@ -95,6 +100,9 @@
 			dependencies = (
 			);
 			name = iMate;
+			packageProductDependencies = (
+				DEDF8892294896C100B9AD72 /* FortuneWheel */,
+			);
 			productName = iMate;
 			productReference = DEC76DF2294533260015E3C7 /* iMate.app */;
 			productType = "com.apple.product-type.application";
@@ -123,6 +131,9 @@
 				Base,
 			);
 			mainGroup = DEC76DE9294533260015E3C7;
+			packageReferences = (
+				DEDF8891294896C100B9AD72 /* XCRemoteSwiftPackageReference "FortuneWheel" */,
+			);
 			productRefGroup = DEC76DF3294533260015E3C7 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -151,6 +162,7 @@
 			files = (
 				DEC76DF8294533260015E3C7 /* ContentView.swift in Sources */,
 				DE7E478D2947276800220873 /* HomeView.swift in Sources */,
+				DEDF889029488FD900B9AD72 /* AssignmentModal.swift in Sources */,
 				DE7E478F29472E5D00220873 /* SingleTask.swift in Sources */,
 				DE7E47892947202A00220873 /* Data.swift in Sources */,
 				DEC76DF6294533260015E3C7 /* iMateApp.swift in Sources */,
@@ -355,6 +367,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DEDF8891294896C100B9AD72 /* XCRemoteSwiftPackageReference "FortuneWheel" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sameersyd/FortuneWheel.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DEDF8892294896C100B9AD72 /* FortuneWheel */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DEDF8891294896C100B9AD72 /* XCRemoteSwiftPackageReference "FortuneWheel" */;
+			productName = FortuneWheel;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DEC76DEA294533260015E3C7 /* Project object */;
 }

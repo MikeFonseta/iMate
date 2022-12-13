@@ -21,7 +21,7 @@ class SharedData: ObservableObject{
         User(username: "davide", hasHouse: true)], owener: User(username: "mike", hasHouse: true))
 
     //TaskSection
-    @Published var storedTasks: [TaskModel] = [TaskModel(taskTitle: "Clean Bathroom", taskDescription: "No Description", taskDate: .init(timeIntervalSince1970: 1671093692),user: "mike",
+    @Published var storedTasks: [TaskModel] = [TaskModel(taskTitle: "Clean Bathroom", taskDescription: "No Description", taskDate: .init(timeIntervalSince1970: 1671094692),user: "mike",
     isCompleted: false, taskImage: Image(systemName: "toilet.circle")),
  
         ]
@@ -81,19 +81,9 @@ class SharedData: ObservableObject{
     
     func isToday(date: Date)->Bool{
         let calendaer = Calendar.current
-        
         return calendaer.isDate(currentDay, inSameDayAs: date)
     }
-    
-    func isCurrentHour(date: Date)-> Bool{
-        
-        let calendar = Calendar.current
-        
-        let hour = calendar.component(.hour, from: date)
-        let currentHour = calendar.component(.hour, from: Date())
-        
-        return hour == currentHour
-    }
+
 }
 
 var sharedData = SharedData()

@@ -109,7 +109,7 @@ struct HomeView: View {
                     var task = task
                     HStack(spacing: 0){
                         HStack(spacing: 5){
-                            if(task.user != ""){
+                            if(task.user != "Nobody" && task.user != ""){
                                 Image(systemName: "person.fill")
                                 Text(task.user)
                             }

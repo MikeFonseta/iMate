@@ -20,6 +20,10 @@ struct SingleTask: View {
     @State var IsSelected1: Bool = false
     @State var IsSelected2: Bool = false
     @State var IsSelected3: Bool = false
+    @State var showRandomAssign = false
+    @State var assignedUser: String = "Nobody"
+    
+    @State var users = ["Nobody","mike","antonio","mariam","cristina","davide","isabella"]
 
     @ObservedObject var taskModel = sharedData
     
@@ -100,9 +104,22 @@ struct SingleTask: View {
                     }
                 
             }
-                    
-                           
+             
+                    Picker("Assigned to", selection: $assignedUser) {
+                        ForEach(users, id: \.self) { user in
+                            Text(user)
+                        }
+                    }
+                    .pickerStyle(.menu)
                 
+                    HStack{
+                        Spacer()
+                        Text("Assign Random").foregroundColor(Color("petrolio"))
+                        Image("Wheel").resizable().frame(width: 20,height: 20)
+                        Spacer()
+                    }.onTapGesture {
+                        showRandomAssign = true
+                    }
                 
                 Section{
                 
@@ -130,13 +147,16 @@ struct SingleTask: View {
                         else{
                             Button("Save"){
                                 
-                                taskModel.storedTasks.append(TaskModel(taskTitle: title, taskDescription: description, taskDate: date, user: "", isCompleted: false))
+                                taskModel.storedTasks.append(TaskModel(taskTitle: title, taskDescription: description, taskDate: date, user: assignedUser != "Nobody" ? assignedUser: "Nobody", isCompleted: false))
                 
                                 taskModel.filterTodayTasks()
                                 presentationMode.wrappedValue.dismiss()
                             }.disabled(title == "")
                         }
                     }
+                }
+                .sheet(isPresented: $showRandomAssign){
+                    AssignmentModal(assignedUser: $assignedUser, showRandomAssign: $showRandomAssign)
                 }
         }
     }
