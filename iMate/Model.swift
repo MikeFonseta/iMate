@@ -14,7 +14,7 @@ struct TaskModel: Identifiable{
     var taskDate: Date
     var user: String
     var isCompleted: Bool
-    var taskImage: Image = Image(systemName: "bed.double.circle")
+    var taskIcon: String
 }
 
 struct User: Identifiable{

@@ -61,7 +61,7 @@ struct HomeView: View {
                 }.padding(2)
             }.ignoresSafeArea(.container, edges: .top)
                 .overlay(
-                    NavigationLink(destination: SingleTask(editing: false), label: {Image(systemName: "plus").foregroundStyle(.white).padding().background(Color("petrolio"), in: Circle())}).padding(), alignment: .bottomTrailing)
+                    NavigationLink(destination: AddNewTask(), label: {Image(systemName: "plus").foregroundStyle(.white).padding().background(Color("petrolio"), in: Circle())}).padding(), alignment: .bottomTrailing)
         }
     }
     
@@ -74,8 +74,11 @@ struct HomeView: View {
                         .offset(y: 100)
                 }
                 else{
-                    ForEach(tasks){ task in
-                        TaskCardView(task: task)
+                    ForEach(Array(tasks.enumerated()), id: \.offset) { index, task in
+                        NavigationLink(destination: ModifyTask(taskIndex: taskModel.storedTasks.firstIndex(where: { $0.id == task.id
+                        })!,title: task.taskTitle, description: task.taskDescription, date: task.taskDate, selectedIcon: task.taskIcon, assignUser: task.user)){
+                            TaskCardView(task: task)
+                        }
                     }
                 }
             }else{
@@ -86,7 +89,6 @@ struct HomeView: View {
         .padding(.top)
         .onChange(of: taskModel.currentDay){ newValue in
             taskModel.filterTodayTasks()
-            
         }
     }
     
@@ -97,7 +99,7 @@ struct HomeView: View {
                 HStack(alignment: .top, spacing: 10){
                     VStack(alignment: .leading, spacing: 12){
                         HStack{     Text(task.taskTitle).font(.title2.bold())
-                          task.taskImage.resizable().frame(width:30 , height:30)
+                          Image(systemName: task.taskIcon).resizable().frame(width:30 , height:30)
                         }
                         Text(task.taskDescription).font(.callout).foregroundStyle(.secondary)
                     }.hLeading()
@@ -105,7 +107,6 @@ struct HomeView: View {
                     Text(task.taskDate.formatted(date: .omitted, time: .shortened))
                     
                 }
-                
                     var task = task
                     HStack(spacing: 0){
                         HStack(spacing: 5){
@@ -116,9 +117,19 @@ struct HomeView: View {
                         }.hLeading()
                         
                         Button{
-                            task.isCompleted = true
+                           if(taskModel.storedTasks[taskModel.storedTasks.firstIndex(where: { $0.id == task.id
+                           })!].isCompleted){
+                                    taskModel.storedTasks[taskModel.storedTasks.firstIndex(where: { $0.id == task.id
+                                    })!].isCompleted = false
+                                }else{
+                                    taskModel.storedTasks[taskModel.storedTasks.firstIndex(where: { $0.id == task.id
+                                    })!].isCompleted = true
+                            }
                         } label: {
-                            Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle.fill")
+                            Image(systemName: taskModel.storedTasks[taskModel.storedTasks.firstIndex(where: { $0.id == task.id
+                            })!].isCompleted ? "checkmark.circle.fill" : "circle.fill")
+                                .resizable()
+                                .frame(width:30, height:30)
                                 .padding(10)
                         }
                     }.padding(.top)

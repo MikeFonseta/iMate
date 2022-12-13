@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE42353E294911E500AB0767 /* ModifyTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE42353D294911E500AB0767 /* ModifyTask.swift */; };
 		DE7E47892947202A00220873 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E47882947202A00220873 /* Data.swift */; };
 		DE7E478B2947243700220873 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E478A2947243700220873 /* Model.swift */; };
 		DE7E478D2947276800220873 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E478C2947276800220873 /* HomeView.swift */; };
-		DE7E478F29472E5D00220873 /* SingleTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E478E29472E5D00220873 /* SingleTask.swift */; };
+		DE7E478F29472E5D00220873 /* AddNewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE7E478E29472E5D00220873 /* AddNewTask.swift */; };
 		DEC76DF6294533260015E3C7 /* iMateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC76DF5294533260015E3C7 /* iMateApp.swift */; };
 		DEC76DF8294533260015E3C7 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEC76DF7294533260015E3C7 /* ContentView.swift */; };
 		DEC76DFA294533270015E3C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEC76DF9294533270015E3C7 /* Assets.xcassets */; };
@@ -20,10 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE42353D294911E500AB0767 /* ModifyTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyTask.swift; sourceTree = "<group>"; };
 		DE7E47882947202A00220873 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		DE7E478A2947243700220873 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		DE7E478C2947276800220873 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		DE7E478E29472E5D00220873 /* SingleTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleTask.swift; sourceTree = "<group>"; };
+		DE7E478E29472E5D00220873 /* AddNewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTask.swift; sourceTree = "<group>"; };
 		DEC76DF2294533260015E3C7 /* iMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEC76DF5294533260015E3C7 /* iMateApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iMateApp.swift; sourceTree = "<group>"; };
 		DEC76DF7294533260015E3C7 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,11 +65,12 @@
 		DEC76DF4294533260015E3C7 /* iMate */ = {
 			isa = PBXGroup;
 			children = (
-				DE7E478E29472E5D00220873 /* SingleTask.swift */,
+				DE7E478E29472E5D00220873 /* AddNewTask.swift */,
 				DEDF888F29488FD900B9AD72 /* AssignmentModal.swift */,
 				DEC76DF5294533260015E3C7 /* iMateApp.swift */,
 				DEC76DF7294533260015E3C7 /* ContentView.swift */,
 				DE7E478C2947276800220873 /* HomeView.swift */,
+				DE42353D294911E500AB0767 /* ModifyTask.swift */,
 				DE7E47882947202A00220873 /* Data.swift */,
 				DE7E478A2947243700220873 /* Model.swift */,
 				DEC76DF9294533270015E3C7 /* Assets.xcassets */,
@@ -163,9 +166,10 @@
 				DEC76DF8294533260015E3C7 /* ContentView.swift in Sources */,
 				DE7E478D2947276800220873 /* HomeView.swift in Sources */,
 				DEDF889029488FD900B9AD72 /* AssignmentModal.swift in Sources */,
-				DE7E478F29472E5D00220873 /* SingleTask.swift in Sources */,
+				DE7E478F29472E5D00220873 /* AddNewTask.swift in Sources */,
 				DE7E47892947202A00220873 /* Data.swift in Sources */,
 				DEC76DF6294533260015E3C7 /* iMateApp.swift in Sources */,
+				DE42353E294911E500AB0767 /* ModifyTask.swift in Sources */,
 				DE7E478B2947243700220873 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

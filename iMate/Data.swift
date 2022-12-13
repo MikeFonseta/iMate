@@ -12,6 +12,7 @@ class SharedData: ObservableObject{
     @Published var user = User(username: "mike", hasHouse: true)
     //@Published var user = User(username: "isabella", hasHouse: false)
     
+    @Published var taskIcons = ["bed.double.circle","fork.knife.circle","toilet.circle","trash.circle"]
     
     @Published var house = House(code: "13m17", name: "Penguin's house", description: "Bhoo", members: [
         User(username: "mike", hasHouse: true),
@@ -21,10 +22,7 @@ class SharedData: ObservableObject{
         User(username: "davide", hasHouse: true)], owener: User(username: "mike", hasHouse: true))
 
     //TaskSection
-    @Published var storedTasks: [TaskModel] = [TaskModel(taskTitle: "Clean Bathroom", taskDescription: "No Description", taskDate: .init(timeIntervalSince1970: 1671094692),user: "mike",
-    isCompleted: false, taskImage: Image(systemName: "toilet.circle")),
- 
-        ]
+    @Published var storedTasks: [TaskModel] = []
     
     @Published var currentWeek: [Date] = []
     @Published var currentDay = Date()
