@@ -39,7 +39,8 @@ struct HouseInfoView: View {
                 Section(header: Text("Housemates")){
                         ForEach(myData.house.members){ housemate in
                             HStack{
-                                Text(housemate.username)
+                                Text(housemate.username == myData.house.owener.username ? "You" : housemate.username)
+            
                                 Spacer()
                                 Text(housemate.username == myData.house.owener.username ? "Owner" : "").foregroundColor(.gray)
                             }

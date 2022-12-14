@@ -101,11 +101,11 @@ struct ModifyTask: View {
                 .alert(isPresented: $showingAlert) {
                     Alert(title: Text("Are you sure you want to delete this task"),primaryButton: .destructive(Text("Delete")) {
                         
-                        let taskToDelete = taskModel.filteredTasks![taskIndex]
-                        let indexToDelete = taskModel.storedTasks.firstIndex(where: { $0.id == taskToDelete.id
+                        let taskToDelete = taskModel.storedTasks[taskIndex]
+                        let indexToDelete = taskModel.filteredTasks?.firstIndex(where: { $0.id == taskToDelete.id
                         })!
-                        taskModel.filteredTasks?.remove(at: taskIndex)
-                        taskModel.storedTasks.remove(at: indexToDelete)
+                        taskModel.filteredTasks?.remove(at: indexToDelete!)
+                        taskModel.storedTasks.remove(at: taskIndex)
                         taskModel.filterTodayTasks()
                         presentationMode.wrappedValue.dismiss()
                     },

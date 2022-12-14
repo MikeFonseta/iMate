@@ -76,7 +76,7 @@ struct HomeView: View {
                 else{
                     ForEach(Array(tasks.enumerated()), id: \.offset) { index, task in
                         NavigationLink(destination: ModifyTask(taskIndex: taskModel.storedTasks.firstIndex(where: { $0.id == task.id
-                        })!,title: task.taskTitle, description: task.taskDescription, date: task.taskDate, selectedIcon: task.taskIcon, assignUser: task.user)){
+                        })!, title: task.taskTitle, description: task.taskDescription, date: task.taskDate, selectedIcon: task.taskIcon, assignUser: task.user)){
                             TaskCardView(task: task)
                         }
                     }
