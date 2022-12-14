@@ -10,11 +10,11 @@ import SwiftUI
 class SharedData: ObservableObject{
     
     @Published var user = User(username: "mike", hasHouse: true)
-    //@Published var user = User(username: "isabella", hasHouse: false)
+    //@Published var user = User(username: "isabella", hasHouse: true)
     
-    @Published var taskIcons = ["bed.double.circle","fork.knife.circle","toilet.circle","trash.circle"]
+    @Published var taskIcons = ["bed.double.circle","fork.knife.circle","toilet.circle","trash.circle","pawprint.circle","popcorn.circle","calendar.circle",]
     
-    @Published var house = House(code: "13m17", name: "Penguin's house", description: "Bhoo", members: [
+    @Published var house = House(code: "13m17", name: "Penguins", description: "Penguins never leave a penguin", members: [
         User(username: "mike", hasHouse: true),
         User(username: "mariam", hasHouse: true),
         User(username: "cristina", hasHouse: true),

@@ -44,12 +44,13 @@ struct ModifyTask: View {
                     Text("Title")
                 }
                 Section(header: Text("icon")){
-                    HStack{
-                        ForEach(taskModel.taskIcons, id: \.self) { taskIcon in
-                            Icon(icon: taskIcon, selectedIcon: self.$selectedIcon)
-                        }
-                    }
-                    
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack(spacing: 10){
+                            ForEach(taskModel.taskIcons, id: \.self) { taskIcon in
+                                Icon(icon: taskIcon, selectedIcon: self.$selectedIcon)
+                            }
+                        }.padding(20)
+                    }.padding(-20)
                 }
                 
                 Picker("Assigned to", selection: $assignedUser) {
@@ -159,7 +160,7 @@ struct ModifyTask: View {
                 .onTapGesture {
                     self.selectedIcon = self.icon
                 }
-                .padding(18)
+                .padding(16)
         }
     }
 }

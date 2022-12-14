@@ -150,7 +150,7 @@ struct HomeView: View {
                 
             Spacer()
             
-            NavigationLink(destination: Text("House Info")){ //HouseInfoView()) {
+            NavigationLink(destination: HouseInfoView()) {
                 Image(systemName: "person.2.fill").resizable().aspectRatio(contentMode: .fill).frame(width: 25, height: 25).foregroundColor(Color("petrolio")).padding()
             }
     
