@@ -27,18 +27,18 @@ struct HomeView: View {
                                 ForEach(taskModel.currentWeek, id: \.self){ day in
                                     VStack(spacing: 10){
                                         Text(taskModel.extractDate(date: day, format: "dd")).font(.system(size: 14))
-                                            .fontWeight(.semibold)
+                                            .fontWeight(taskModel.checkTheDay(date: day) ? .light: taskModel.isToday(date: day) ? .bold: .light).foregroundColor(taskModel.checkTheDay(date: day) ? .white: taskModel.isToday(date: day) ? Color("petrolio"): .gray)
                                         
-                                        Text(taskModel.extractDate(date: day, format: "EEE")).font(.system(size: 15))
+                                        Text(taskModel.extractDate(date: day, format: "EEE")).font(.system(size: 15)).textCase(.uppercase).fontWeight(taskModel.checkTheDay(date: day) ? .light: taskModel.isToday(date: day) ? .bold: .light).foregroundColor(taskModel.checkTheDay(date: day) ? .white: taskModel.isToday(date: day) ? Color("petrolio"): .gray)
                                         
                                         Circle().fill(.white).frame(width: 8, height: 8)
                                             .opacity(taskModel.isToday(date: day) ? 1 : 0)
-                                    }.foregroundStyle(taskModel.isToday(date: day) ? .primary : .tertiary)
-                                        .foregroundColor(taskModel.isToday(date: day) ? Color.white : Color.black)
+                                    }.foregroundStyle(taskModel.checkTheDay(date: day) ? .primary : .tertiary)
+                                        .foregroundColor(taskModel.checkTheDay(date: day) ? Color.white : Color.black)
                                         .frame(width: 45, height: 90)
                                         .background{
                                             ZStack{
-                                                if taskModel.isToday(date: day){ Capsule().fill(Color("petrolio")).matchedGeometryEffect(id: "CURRENTDAY", in: animation)
+                                                if taskModel.checkTheDay(date: day){ Capsule().fill(Color("petrolio")).matchedGeometryEffect(id: "CURRENTDAY", in: animation)
                                                 }
                                             }
                                         }
@@ -61,7 +61,7 @@ struct HomeView: View {
                 }.padding(2)
             }.ignoresSafeArea(.container, edges: .top)
                 .overlay(
-                    NavigationLink(destination: AddNewTask(), label: {Image(systemName: "plus").foregroundStyle(.white).padding().background(Color("petrolio"), in: Circle())}).padding(), alignment: .bottomTrailing)
+                    NavigationLink(destination: AddNewTask(), label: {Image(systemName: "plus").foregroundStyle(.white).aspectRatio(contentMode: .fill).frame(width: 25, height: 25).padding().background(Color("petrolio"), in: Circle())}).padding(), alignment: .bottomTrailing)
         }
     }
     
@@ -107,7 +107,7 @@ struct HomeView: View {
                     Text(task.taskDate.formatted(date: .omitted, time: .shortened))
                     
                 }
-                    var task = task
+                    let task = task
                     HStack(spacing: 0){
                         HStack(spacing: 5){
                             if(task.user != "Nobody" && task.user != ""){
@@ -151,7 +151,7 @@ struct HomeView: View {
             Spacer()
             
             NavigationLink(destination: Text("House Info")){ //HouseInfoView()) {
-                Image(systemName: "person.2.fill").foregroundColor(Color("petrolio"))
+                Image(systemName: "person.2.fill").resizable().aspectRatio(contentMode: .fill).frame(width: 25, height: 25).foregroundColor(Color("petrolio")).padding()
             }
     
             

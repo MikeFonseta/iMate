@@ -26,6 +26,7 @@ class SharedData: ObservableObject{
     
     @Published var currentWeek: [Date] = []
     @Published var currentDay = Date()
+    @Published var today = Date()
     
     @Published var filteredTasks: [TaskModel]?
     
@@ -63,7 +64,7 @@ class SharedData: ObservableObject{
             return
         }
         
-        (1...28).forEach { day in
+        (1...7).forEach { day in
             if let weekDay = calendar.date(byAdding: .day, value: day,to: firstWeekOfDay){
                 currentWeek.append(weekDay)
             }
@@ -77,10 +78,16 @@ class SharedData: ObservableObject{
         return formatter.string(from: date)
     }
     
-    func isToday(date: Date)->Bool{
+    func checkTheDay(date: Date)->Bool{
         let calendaer = Calendar.current
         return calendaer.isDate(currentDay, inSameDayAs: date)
     }
+    
+    func isToday(date: Date)->Bool{
+        let calendaer = Calendar.current
+        return calendaer.isDate(today, inSameDayAs: date)
+    }
+    
 
 }
 
