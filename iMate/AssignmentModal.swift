@@ -19,14 +19,14 @@ struct AssignmentModal: View {
     
     @State var showingAlert: Bool = false
     @State var selected: Int = 0
-    @State var users = ["mike","antonio","mariam","cristina","davide","isabella"]
+    @State var users = ["Mike","Antonio","Mariam","Cristina","Davide","Isabella"]
     
 
     var body: some View {
         NavigationView{
             VStack(){
                 Spacer()
-                FortuneWheel(titles: ["mike","antonio","mariam","cristina","davide","isabella"], size: 320, onSpinEnd: { index in
+                FortuneWheel(titles: ["Mike","Antonio","Mariam","Cristina","Davide","Isabella"], size: 320, onSpinEnd: { index in
                     selected = index
                     showingAlert = true
                     assignedUser = users[index]
