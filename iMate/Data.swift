@@ -9,7 +9,7 @@ import SwiftUI
 
 class SharedData: ObservableObject{
     
-    @Published var user = User(username: "mike", hasHouse: true)
+    @Published var user = User(username: "Mike", hasHouse: true)
     //@Published var user = User(username: "isabella", hasHouse: true)
     
     @Published var taskIcons = ["bed.double.circle","fork.knife.circle","toilet.circle","trash.circle","pawprint.circle","popcorn.circle","calendar.circle","dollarsign.circle"]
@@ -20,7 +20,7 @@ class SharedData: ObservableObject{
         User(username: "Cristina", hasHouse: true),
         User(username: "Antonio", hasHouse: true),
         User(username: "Davide", hasHouse: true),
-        User(username: "Isabella", hasHouse: true)], owener: User(username: "mike", hasHouse: true))
+        User(username: "Isabella", hasHouse: true)], owener: User(username: "Mike", hasHouse: true))
 
     //TaskSection
     @Published var storedTasks: [TaskModel] = []
