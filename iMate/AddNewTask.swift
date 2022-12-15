@@ -19,7 +19,7 @@ struct AddNewTask: View {
     @State var showingAlert = false
     @State var assignedUser: String = "Nobody"
 
-    @State var users = ["Nobody","mike","antonio","mariam","cristina","davide","isabella"]
+    @State var users = ["Nobody","Mike","Antonio","Mariam","Cristina","Davide","Isabella"]
     
     @ObservedObject var taskModel = sharedData
     

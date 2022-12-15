@@ -15,11 +15,12 @@ class SharedData: ObservableObject{
     @Published var taskIcons = ["bed.double.circle","fork.knife.circle","toilet.circle","trash.circle","pawprint.circle","popcorn.circle","calendar.circle","dollarsign.circle"]
     
     @Published var house = House(code: "13m17", name: "Penguins", description: "Penguins never leave a penguin", members: [
-        User(username: "mike", hasHouse: true),
-        User(username: "mariam", hasHouse: true),
-        User(username: "cristina", hasHouse: true),
-        User(username: "antonio", hasHouse: true),
-        User(username: "davide", hasHouse: true)], owener: User(username: "mike", hasHouse: true))
+        User(username: "Mike", hasHouse: true),
+        User(username: "Mariam", hasHouse: true),
+        User(username: "Cristina", hasHouse: true),
+        User(username: "Antonio", hasHouse: true),
+        User(username: "Davide", hasHouse: true),
+        User(username: "Isabella", hasHouse: true)], owener: User(username: "mike", hasHouse: true))
 
     //TaskSection
     @Published var storedTasks: [TaskModel] = []
